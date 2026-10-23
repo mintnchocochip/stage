@@ -1,0 +1,12 @@
+{
+  "id": "fira-code",
+  "family": "Fira Code",
+  "category": "monospace",
+  "files": [
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "300 700"
+    }
+  ]
+}

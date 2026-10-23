@@ -1,0 +1,30 @@
+stagecraft build: 3 slides, 14 errors, 15 warnings
+  ERROR  font: 'inter' is a default-AI tell. Pick a distinctive face (references/design.md) or allow it via <meta name="kx-allow-fonts" content="inter"> when a brand book requires it
+  ERROR  font: 'roboto' is a default-AI tell. Pick a distinctive face (references/design.md) or allow it via <meta name="kx-allow-fonts" content="roboto"> when a brand book requires it
+  ERROR  font: 'arial' is a default-AI tell. Pick a distinctive face (references/design.md) or allow it via <meta name="kx-allow-fonts" content="arial"> when a brand book requires it
+  ERROR  ledger: claim C2 quote not found verbatim in sources/facts.txt; it matches up to "It runs at 42 frames per second" and diverges at "wrongly quoted"
+  ERROR  ledger: claim C4 uses model knowledge but source_policy is strict
+  ERROR  ledger: claim C5 cites unknown source 'S9'
+  ERROR  slide 1 #intro: dash character '—' in "e leverage a seamless journey — it is fast. The engine is not". Rewrite as two sentences, a comma, or a colon
+  ERROR  slide 1 #intro: dash character '–' in "le 4 and v2.1 builds. A chart – with a dash This sentence is ". Rewrite as two sentences, a comma, or a colon
+  ERROR  slide 1 #intro: data-claims references unknown claim 'C9'
+  ERROR  slide 2 #two: spaced hyphen used as a dash in "ks Rocket 🚀 launch and a spaced - hyphen here. Say 1080 and 42 he"
+  ERROR  slide 2 #two: emoji in slide text. Use type, rules, or drawn marks instead
+  ERROR  slide 3: missing data-layout (needed for the variety check)
+  ERROR  deck: default data-motion=4 is not one of the offered data-levels [0, 2, 3]
+  ERROR  deck: motion is engine presets only. When Cinematic or Insane is offered, author this deck's own cut and hero moves (KX_CUT, data-move, data-keep, KX_ENTER) from its motion concept (references/motion.md)
+  warn   ledger: quotes from source S2 (sources/missing.txt) were not verified (file missing or unreadable format). Use a path relative to brief.json or absolute, or extract the text to a .txt source
+  warn   slide 1 #intro: number '77' is in the ledger but not in this slide's data-claims. Cite the claim it comes from
+  warn   slide 1 #intro: generic title 'Introduction'. Say the point instead
+  warn   slide 1 #intro: stock phrase 'leverage'
+  warn   slide 1 #intro: stock phrase 'seamless'
+  warn   slide 1 #intro: stock phrase 'journey'
+  warn   slide 1 #intro: 'not X but Y' construction. State the point directly
+  warn   slide 1 #intro: exclamation mark on a slide
+  warn   slide 1 #intro: long sentence (25 words): "This sentence is deliberately far too long because it keeps going and ..."
+  warn   slide 1 #intro: no <aside class="notes"> speaker notes
+  warn   slide 2 #two: number '1080' is in the ledger but not in this slide's data-claims. Cite the claim it comes from
+  warn   slide 2 #two: same data-layout 'poster' as the previous slide
+  warn   slide 2 #two: generic title 'Thanks'. Say the point instead
+  warn   slide 3: 11 animated elements. Choreograph fewer, larger moves
+  warn   deck: brief.json has no "motion" concept. Design the motion for this subject (references/motion.md)

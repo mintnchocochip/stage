@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One file, five speeds</title>
+<style id="kx-fonts">
+@font-face{font-family:'Fraunces';src:url(assets/fonts/fraunces/latin-full-italic.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:block}
+@font-face{font-family:'Fraunces';src:url(assets/fonts/fraunces/latin-full-normal.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:block}
+@font-face{font-family:'Instrument Sans';src:url(assets/fonts/instrument-sans/latin-standard-italic.woff2) format('woff2');font-weight:400 700;font-style:italic;font-display:block}
+@font-face{font-family:'Instrument Sans';src:url(assets/fonts/instrument-sans/latin-standard-normal.woff2) format('woff2');font-weight:400 700;font-style:normal;font-display:block}
+@font-face{font-family:'JetBrains Mono';src:url(assets/fonts/jetbrains-mono/latin-wght-italic.woff2) format('woff2');font-weight:100 800;font-style:italic;font-display:block}
+@font-face{font-family:'JetBrains Mono';src:url(assets/fonts/jetbrains-mono/latin-wght-normal.woff2) format('woff2');font-weight:100 800;font-style:normal;font-display:block}
+</style>
+<style>
+/* ===== Theme tokens ===== */
+:root {
+  --bg: #ece7dd;
+  --fg: #151412;
+  --muted: #6d675d;
+  --rule: #151412;
+  --accent: #e4482b;
+  --accent-ink: #b5321a;
+  --paper-2: #e2dccf;
+  --ink-soft: #2b2925;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Instrument Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --m: 96px;
+}
+body { font-family: var(--font-body); }
+.slide { color: var(--fg); }
+.mono { font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+.kicker { font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 28px; }
+.folio { position: absolute; top: 56px; right: var(--m); font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.1em; color: var(--muted); }
+h1, h2 { font-family: var(--font-display); font-weight: 400; margin: 0; font-variation-settings: 'opsz' 120, 'SOFT' 0; }
+
+/* ===== 1 poster ===== */
+.s-cover .cover-meta { position: absolute; top: 64px; left: var(--m); right: var(--m); display: flex; justify-content: space-between; border-top: 2px solid var(--rule); padding-top: 18px; }
+.s-cover .cover-meta span { font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; }
+.s-cover .cover-title { position: absolute; left: 84px; bottom: 250px; font-size: 300px; line-height: 0.86; letter-spacing: -0.045em; }
+.s-cover .cover-title span, .s-cover .cover-title em { display: block; }
+.s-cover .cover-title em { font-style: italic; color: var(--accent); padding-left: 360px; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1; }
+.s-cover .cover-dek { position: absolute; left: var(--m); bottom: 96px; width: 620px; font-size: 30px; line-height: 1.35; margin: 0; }
+.s-cover .cover-keys { position: absolute; right: var(--m); bottom: 96px; text-align: right; font-family: var(--font-mono); font-size: 18px; line-height: 1.8; color: var(--muted); letter-spacing: 0.08em; }
+.s-cover .cover-keys b { color: var(--fg); font-weight: 500; }
+
+/* ===== 2 giant number ===== */
+.s-stage { background: var(--fg); color: var(--bg); --fx: var(--accent); }
+.s-stage .giant { position: absolute; left: -36px; top: 90px; font-family: var(--font-display); font-size: 430px; line-height: 0.8; letter-spacing: -0.06em; font-weight: 300; }
+.s-stage .giant span { display: block; }
+.s-stage .giant .x { font-size: 180px; color: var(--accent); margin: 10px 0 0 40px; font-style: italic; }
+.s-stage .rail { position: absolute; right: var(--m); top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid #3a3833; padding-left: 64px; }
+.s-stage .rail h2 { font-size: 72px; line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 36px; }
+.s-stage .rail p { font-size: 30px; line-height: 1.45; margin: 0; color: #c9c3b6; }
+.s-stage .kicker { color: var(--accent); }
+
+/* ===== 3 diagram + rail ===== */
+.s-pipe h2 { position: absolute; left: var(--m); top: 120px; width: 1000px; font-size: 84px; line-height: 1; letter-spacing: -0.025em; }
+.s-pipe svg.flow { position: absolute; left: 60px; top: 330px; width: 1240px; height: 640px; overflow: visible; }
+.s-pipe .node rect { fill: var(--bg); stroke: var(--fg); stroke-width: 2.5; }
+.s-pipe .node.hot rect { fill: var(--fg); }
+.s-pipe .node.hot text { fill: var(--bg); }
+.s-pipe .node text { font-family: var(--font-mono); font-size: 24px; fill: var(--fg); letter-spacing: 0.04em; }
+.s-pipe .node text.sub { font-family: var(--font-body); font-size: 20px; fill: var(--muted); letter-spacing: 0; }
+.s-pipe .node.hot text.sub { fill: #bdb6a8; }
+.s-pipe .node.is-focus rect { stroke: var(--accent); stroke-width: 5; }
+.s-pipe .edge { fill: none; stroke: var(--fg); stroke-width: 2.5; }
+.s-pipe .rail { position: absolute; right: 0; top: 0; bottom: 0; width: 520px; background: var(--paper-2); padding: 300px 72px 0 64px; }
+.s-pipe .rail h3 { font-family: var(--font-display); font-weight: 400; font-size: 46px; line-height: 1.08; margin: 0 0 22px; }
+.s-pipe .rail p { font-size: 26px; line-height: 1.5; margin: 0 0 18px; color: var(--ink-soft); }
+.s-pipe .rail code { font-family: var(--font-mono); font-size: 22px; background: var(--bg); padding: 2px 8px; }
+
+/* ===== 4 index ===== */
+.s-levels { display: grid; grid-template-columns: 720px 1fr; }
+.s-levels .side { padding: 120px 0 0 var(--m); }
+.s-levels .side h2 { width: 520px; font-size: 92px; line-height: 0.95; letter-spacing: -0.03em; }
+.s-levels .side p { margin-top: 36px; font-size: 26px; line-height: 1.5; color: var(--muted); width: 380px; }
+.s-levels ol { list-style: none; margin: 0; padding: 96px var(--m) 0 0; }
+.s-levels li { display: grid; grid-template-columns: 90px 400px 1fr; align-items: baseline; border-top: 2px solid var(--rule); padding: 26px 0 30px; cursor: default; transition: background 0.3s; }
+.s-levels li:last-child { border-bottom: 2px solid var(--rule); }
+.s-levels li b { font-family: var(--font-mono); font-weight: 500; font-size: 26px; color: var(--accent-ink); }
+.s-levels li .name { font-family: var(--font-display); font-size: 76px; line-height: 1; letter-spacing: -0.02em; }
+.s-levels li:hover .name { font-style: italic; color: var(--accent); }
+.s-levels li .kx-on-hover { font-size: 25px; line-height: 1.4; color: var(--ink-soft); }
+
+/* ===== 5 chart + margin note ===== */
+.s-timing .head { position: absolute; left: var(--m); top: 110px; width: 1200px; }
+.s-timing .head h2 { font-size: 88px; line-height: 1; letter-spacing: -0.03em; }
+.s-timing .chart { position: absolute; left: var(--m); top: 400px; width: 1180px; }
+.s-timing .row { display: grid; grid-template-columns: 160px 1fr 120px; align-items: center; height: 104px; border-top: 1px solid #b9b2a4; }
+.s-timing .row:last-child { border-bottom: 1px solid #b9b2a4; }
+.s-timing .row .lab { font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.06em; text-transform: uppercase; }
+.s-timing .track { height: 40px; position: relative; }
+.s-timing .fill { height: 100%; width: calc(var(--v) / 1.15 * 100%); background: var(--fg); }
+.s-timing .row.peak .fill { background: var(--accent); }
+.s-timing .val { font-family: var(--font-display); font-size: 44px; text-align: right; }
+.s-timing .margin { position: absolute; right: var(--m); top: 400px; width: 380px; border-top: 6px solid var(--accent); padding-top: 28px; }
+.s-timing .margin p { font-size: 28px; line-height: 1.45; margin: 0 0 20px; }
+.s-timing .margin .mono { color: var(--muted); font-size: 18px; }
+
+/* ===== 6 statement + tabs ===== */
+.s-gate { background: var(--accent); color: var(--fg); }
+.s-gate h2 { position: absolute; left: var(--m); top: 120px; width: 1180px; font-size: 128px; line-height: 0.95; letter-spacing: -0.035em; }
+.s-gate h2 em { font-style: italic; }
+.s-gate .tabs { position: absolute; left: var(--m); right: var(--m); bottom: 96px; display: grid; grid-template-columns: 360px 1fr; gap: 64px; border-top: 2px solid var(--fg); padding-top: 36px; }
+.s-gate .tablist { display: flex; flex-direction: column; gap: 12px; }
+.s-gate [data-tab] { all: unset; cursor: pointer; font-family: var(--font-mono); font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 0; opacity: 0.55; }
+.s-gate [data-tab].is-on { opacity: 1; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 3px; }
+.s-gate [data-pane] ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 64px; }
+.s-gate [data-pane] li { font-size: 30px; line-height: 1.35; padding: 10px 0; break-inside: avoid; }
+</style>
+</head>
+<body data-levels="0 2 3 4" data-motion="3" data-cut="scan">
+<div class="kx-viewport"><div class="kx-stage">
+
+<section class="slide s-cover" id="cover" data-layout="poster" data-fx="dotgrid" data-claims="C2" data-title="One file. Five speeds.">
+  <div class="cover-meta" data-anim="stagger"><span>stagecraft</span><span>Engine walkthrough</span><span>Example deck</span></div>
+  <h1 class="cover-title" data-move='{"yPercent":100,"split":"chars","stagger":0.035,"ease":"steps(4)","dur":0.5}'><span>One file.</span><em>Five speeds.</em></h1>
+  <p class="cover-dek" data-anim="lines" data-delay="0.9">A whole deck lives in one HTML file. A motion selector plays it from Still to Insane.</p>
+  <div class="cover-keys" data-anim="fade" data-delay="1.2"><b>M</b> motion · <b>N</b> notes · <b>O</b> overview · <b>P</b> presenter</div>
+  <aside class="notes"><p>Open with the promise. One file, no build step at the venue. Press M to show the motion selector live.</p></aside>
+</section>
+
+<section class="slide s-stage" id="stage" data-layout="giant-number" data-fx="grain" data-claims="C1 C3">
+  <div class="giant" data-bleed data-depth="0.5" data-move='{"scale":0.4,"transformOrigin":"0% 50%","ease":"power4.inOut","dur":1.3,"opacity":1}'><span>1920</span><span class="x">by</span><span>1080</span></div>
+  <div class="rail">
+    <p class="kicker" data-anim="fade">The stage</p>
+    <h2 data-anim="lines">Every slide is drawn once and scaled whole.</h2>
+    <p data-anim="fade" data-step="1">Phones letterbox. Projectors fill. Nothing reflows, so nothing breaks on the day.</p>
+  </div>
+  <aside class="notes"><p>The fixed stage is why layouts survive any screen. Click once to bring in the second line.</p></aside>
+</section>
+
+<section class="slide s-pipe" id="pipeline" data-layout="diagram-rail" data-claims="C4 C5" data-transition="iris">
+  <span class="folio" data-deco>03 · Pipeline</span>
+  <h2 data-anim="lines">Source in. Checked deck out.</h2>
+  <svg class="flow" viewBox="0 0 1240 640" data-anim="draw">
+    <path class="edge" data-flow data-edge="brief build" d="M250 120 C 360 120, 360 300, 470 300"/>
+    <path class="edge" data-flow data-edge="src build" d="M250 480 C 360 480, 360 300, 470 300"/>
+    <path class="edge" data-flow data-edge="build deck" d="M770 300 L 930 300"/>
+    <g class="node" data-node="brief" data-links="build" transform="translate(0 60)"><rect width="250" height="120"/><text x="24" y="52">brief.json</text><text class="sub" x="24" y="88">sourced claims</text></g>
+    <g class="node" data-node="src" data-links="build" transform="translate(0 420)"><rect width="250" height="120"/><text x="24" y="52">deck.src.html</text><text class="sub" x="24" y="88">slides and theme</text></g>
+    <g class="node hot" data-node="build" data-links="brief src deck" transform="translate(470 230)"><rect width="300" height="140"/><text x="28" y="60">build.py</text><text class="sub" x="28" y="98">lint, then inline</text></g>
+    <g class="node" data-node="deck" data-links="build" transform="translate(930 240)"><rect width="300" height="120"/><text x="28" y="52">deck.html</text><text class="sub" x="28" y="88">one file, GSAP pinned</text></g>
+  </svg>
+  <div class="rail" data-anim="fade" data-delay="0.6">
+    <div data-detail="default"><h3>Click any box.</h3><p>The diagram is live. Each stage lights its own connections.</p></div>
+    <div data-detail="brief" hidden><h3>The claim ledger</h3><p>Every number on a slide must exist in a claim. Every claim points at a source and a verbatim quote.</p></div>
+    <div data-detail="src" hidden><h3>Slides and theme</h3><p>Plain HTML sections with <code>data-anim</code> tags. No engine code is written by hand.</p></div>
+    <div data-detail="build" hidden><h3>The gate</h3><p>Lint runs first. With any error the deck is not written.</p></div>
+    <div data-detail="deck" hidden><h3>The artifact</h3><p>GSAP 3.13.0 is pinned. Add <code>--offline</code> to inline it for a venue with bad wifi.</p></div>
+  </div>
+  <aside class="notes"><p>Click build.py to show the gate, then deck.html. The dashed paths carry packets from Cinematic up.</p></aside>
+</section>
+
+<section class="slide s-levels" id="levels" data-layout="index" data-claims="C2 C11">
+  <div class="side">
+    <h2 data-anim="lines">Pick the energy for the room.</h2>
+    <p data-anim="fade" data-delay="0.5">Hover a level to see what it switches on. Press M to change it live.</p>
+  </div>
+  <ol data-anim="stagger">
+    <li data-hover><b>0</b><span class="name">Still</span><span class="kx-on-hover">Hard cuts. Nothing moves. Built for print and screen readers.</span></li>
+    <li data-hover><b>1</b><span class="name">Minimal</span><span class="kx-on-hover">Short fades between slides and on text.</span></li>
+    <li data-hover><b>2</b><span class="name">Smooth</span><span class="kx-on-hover">Line masks, staggered lists, drawn diagrams.</span></li>
+    <li data-hover><b>3</b><span class="name">Cinematic</span><span class="kx-on-hover">Wipes, canvas effects, cursor parallax.</span></li>
+    <li data-hover><b>4</b><span class="name">Insane</span><span class="kx-on-hover">Character choreography and a new cut every slide.</span></li>
+  </ol>
+  <aside class="notes"><p>Run the room at Smooth. Switch to Insane for the opener only if the audience is already warm.</p></aside>
+</section>
+
+<section class="slide s-timing" id="timing" data-layout="chart-margin" data-claims="C6 C7 C8 C9 C10">
+  <div class="head"><p class="kicker" data-anim="fade">Transition length, seconds</p><h2 data-anim="lines">The slower the cut, the bigger the moment.</h2></div>
+  <div class="chart">
+    <div class="row"><span class="lab">Fade</span><div class="track"><div class="fill" style="--v:0.45" data-anim="grow" data-axis="x" data-tip="Fade, level 1"></div></div><span class="val">0.45</span></div>
+    <div class="row"><span class="lab">Slide</span><div class="track"><div class="fill" style="--v:0.85" data-anim="grow" data-axis="x" data-tip="Slide, level 2"></div></div><span class="val">0.85</span></div>
+    <div class="row"><span class="lab">Wipe</span><div class="track"><div class="fill" style="--v:1.0" data-anim="grow" data-axis="x" data-tip="Wipe, level 3"></div></div><span class="val">1.0</span></div>
+    <div class="row"><span class="lab">Zoom</span><div class="track"><div class="fill" style="--v:1.1" data-anim="grow" data-axis="x" data-tip="Zoom, level 3"></div></div><span class="val">1.1</span></div>
+    <div class="row peak"><span class="lab">Iris</span><div class="track"><div class="fill" style="--v:1.15" data-anim="grow" data-axis="x" data-tip="Iris opens from the cursor"></div></div><span class="val">1.15</span></div>
+  </div>
+  <div class="margin" data-anim="fade" data-delay="0.8"><p>Iris opens from wherever the cursor rests. Point at the thing you want them to see next.</p><p class="mono">Hover a bar for its level</p></div>
+  <aside class="notes"><p>Use long cuts for section changes, fades inside a section.</p></aside>
+</section>
+
+<section class="slide s-gate" id="gate" data-layout="statement-tabs" data-claims="C4 C12" data-transition="shutter">
+  <h2 data-anim="lines">Errors block the build. <em>Warnings ask for a second look.</em></h2>
+  <div class="tabs" data-tabs data-anim="fade" data-delay="0.7">
+    <div class="tablist"><button data-tab="err">Errors</button><button data-tab="warn">Warnings</button></div>
+    <div>
+      <div data-pane="err"><ul><li>Dash characters and spaced hyphens</li><li>Emoji on a slide</li><li>Default AI fonts</li><li>Numbers missing from the ledger</li><li>Quotes not found in their source</li></ul></div>
+      <div data-pane="warn"><ul><li>Generic titles like Overview</li><li>Stock phrases</li><li>Sentences over 24 words</li><li>Two slides in a row with one layout</li></ul></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close on the guarantee. The build refuses to ship a deck that invents numbers.</p></aside>
+</section>
+
+</div></div>
+<script>
+// Motion concept: a print run. Pages are set in type, scaled to the frame, then scanned onto the stage line by line.
+window.KX_CUT = window.KX_CUT || {};
+window.KX_CUT.scan = ({ from, to, dir, level, gsap, tl }) => {
+  tl.fromTo(to, { clipPath: dir > 0 ? 'inset(0% 0% 100% 0%)' : 'inset(100% 0% 0% 0%)' },
+    { clipPath: 'inset(0% 0% 0% 0%)', duration: level >= 3 ? 0.8 : 0.5, ease: 'steps(' + (level >= 3 ? 10 : 6) + ')' })
+    .to(from, { opacity: 0.25, duration: 0.5, ease: 'power1.in' }, 0);
+  return 0.6;
+};
+</script>
+</body>
+</html>

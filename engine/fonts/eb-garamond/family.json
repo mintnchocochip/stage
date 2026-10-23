@@ -1,0 +1,17 @@
+{
+  "id": "eb-garamond",
+  "family": "EB Garamond",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-wght-italic.woff2",
+      "style": "italic",
+      "weight": "400 800"
+    },
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "400 800"
+    }
+  ]
+}

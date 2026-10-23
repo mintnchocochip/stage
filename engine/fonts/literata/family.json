@@ -1,0 +1,17 @@
+{
+  "id": "literata",
+  "family": "Literata",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-standard-italic.woff2",
+      "style": "italic",
+      "weight": "200 900"
+    },
+    {
+      "file": "latin-standard-normal.woff2",
+      "style": "normal",
+      "weight": "200 900"
+    }
+  ]
+}

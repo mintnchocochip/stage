@@ -1,0 +1,185 @@
+{
+  "title": "One file, five speeds",
+  "audience": "Developers deciding whether to present from an HTML deck instead of PowerPoint",
+  "goal": "They understand how a stagecraft deck is built, checked, and played, and trust it for a live talk",
+  "source_policy": "strict",
+  "register": "technical, plain, confident; short declarative sentences; code names in mono",
+  "sources": [
+    {
+      "id": "S1",
+      "ref": "sources/engine.js",
+      "kind": "code"
+    },
+    {
+      "id": "S2",
+      "ref": "sources/build.py",
+      "kind": "code"
+    },
+    {
+      "id": "S3",
+      "ref": "sources/engine.css",
+      "kind": "code"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Every slide is drawn on a 1920 by 1080 stage",
+      "source": "S1",
+      "locator": "engine.js top",
+      "quote": "const W = 1920, H = 1080;"
+    },
+    {
+      "id": "C2",
+      "text": "Motion has five levels: 0 Still, 1 Minimal, 2 Smooth, 3 Cinematic, 4 Insane",
+      "source": "S1",
+      "locator": "LEVELS",
+      "quote": "const LEVELS = ['Still', 'Minimal', 'Smooth', 'Cinematic', 'Insane'];"
+    },
+    {
+      "id": "C3",
+      "text": "The stage scales as a whole and never reflows per device",
+      "source": "S3",
+      "locator": "stage block",
+      "quote": "Never reflow slide content per device."
+    },
+    {
+      "id": "C4",
+      "text": "build.py lints the source and refuses to write when there are errors",
+      "source": "S2",
+      "locator": "main()",
+      "quote": "print(\"Not written. Fix the errors and rebuild.\")"
+    },
+    {
+      "id": "C5",
+      "text": "GSAP 3.13.0 is pinned and can be inlined for offline talks",
+      "source": "S2",
+      "locator": "GSAP_VER",
+      "quote": "GSAP_VER = \"3.13.0\""
+    },
+    {
+      "id": "C6",
+      "text": "Fade transition runs 0.45 seconds",
+      "source": "S1",
+      "locator": "transition fade",
+      "quote": "{ opacity: 1, duration: 0.45, ease: 'power2.out' }"
+    },
+    {
+      "id": "C7",
+      "text": "Slide transition runs 0.85 seconds",
+      "source": "S1",
+      "locator": "transition slide",
+      "quote": "{ opacity: 1, y: 0, duration: 0.85, ease: 'expo.out' }"
+    },
+    {
+      "id": "C8",
+      "text": "Wipe transition runs 1.0 seconds",
+      "source": "S1",
+      "locator": "transition wipe",
+      "quote": "{ clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power4.inOut' }"
+    },
+    {
+      "id": "C9",
+      "text": "Zoom transition runs 1.1 seconds",
+      "source": "S1",
+      "locator": "transition zoom",
+      "quote": "{ opacity: 1, scale: 1, duration: 1.1, ease: 'expo.inOut' }"
+    },
+    {
+      "id": "C10",
+      "text": "Iris transition runs 1.15 seconds",
+      "source": "S1",
+      "locator": "transition iris",
+      "quote": "duration: 1.15, ease: 'power3.inOut' }"
+    },
+    {
+      "id": "C11",
+      "text": "Canvas effects and cursor parallax start at level 3",
+      "source": "S1",
+      "locator": "fxStart",
+      "quote": "f.c.style.display = L >= 3 ? '' : 'none';"
+    },
+    {
+      "id": "C12",
+      "text": "Sentences over 24 words raise a warning",
+      "source": "S2",
+      "locator": "lint()",
+      "quote": "if len(sent.split()) > 24:"
+    }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "role": "cover",
+      "title": "One file. Five speeds.",
+      "claims": [
+        "C2"
+      ],
+      "layout": "poster"
+    },
+    {
+      "id": "stage",
+      "role": "point",
+      "title": "Every slide is drawn once and scaled whole",
+      "claims": [
+        "C1",
+        "C3"
+      ],
+      "layout": "giant-number"
+    },
+    {
+      "id": "pipeline",
+      "role": "mechanism",
+      "title": "Source in, checked deck out",
+      "claims": [
+        "C4",
+        "C5"
+      ],
+      "layout": "diagram-rail"
+    },
+    {
+      "id": "levels",
+      "role": "explain",
+      "title": "Pick the energy for the room",
+      "claims": [
+        "C2",
+        "C11"
+      ],
+      "layout": "index"
+    },
+    {
+      "id": "timing",
+      "role": "evidence",
+      "title": "The slower the cut, the bigger the moment",
+      "claims": [
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10"
+      ],
+      "layout": "chart-margin"
+    },
+    {
+      "id": "gate",
+      "role": "close",
+      "title": "Errors block the build",
+      "claims": [
+        "C4",
+        "C12"
+      ],
+      "layout": "statement-tabs"
+    }
+  ],
+  "motion": {
+    "concept": "A print run. Pages are set in type, scaled to fit the frame, then scanned onto the stage line by line.",
+    "feel": "mechanical and exact: steps() eases for type and cuts, power4.inOut for scaling, short holds",
+    "cut": "scan: the next slide is revealed top to bottom in discrete steps, like a scan line",
+    "signatures": [
+      "cover: the title is set character by character in stepped type",
+      "stage: 1920 by 1080 scales up into the frame",
+      "pipeline: the flow draws from source to checked deck"
+    ],
+    "still": "body copy, keys and margins only fade"
+  }
+}

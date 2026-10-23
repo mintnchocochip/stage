@@ -1,0 +1,27 @@
+{
+  "id": "space-mono",
+  "family": "Space Mono",
+  "category": "monospace",
+  "files": [
+    {
+      "file": "latin-400-italic.woff2",
+      "style": "italic",
+      "weight": "400"
+    },
+    {
+      "file": "latin-400-normal.woff2",
+      "style": "normal",
+      "weight": "400"
+    },
+    {
+      "file": "latin-700-italic.woff2",
+      "style": "italic",
+      "weight": "700"
+    },
+    {
+      "file": "latin-700-normal.woff2",
+      "style": "normal",
+      "weight": "700"
+    }
+  ]
+}

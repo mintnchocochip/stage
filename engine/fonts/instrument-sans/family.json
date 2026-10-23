@@ -1,0 +1,17 @@
+{
+  "id": "instrument-sans",
+  "family": "Instrument Sans",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-standard-italic.woff2",
+      "style": "italic",
+      "weight": "400 700"
+    },
+    {
+      "file": "latin-standard-normal.woff2",
+      "style": "normal",
+      "weight": "400 700"
+    }
+  ]
+}

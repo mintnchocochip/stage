@@ -1,0 +1,17 @@
+{
+  "id": "playfair-display",
+  "family": "Playfair Display",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-wght-italic.woff2",
+      "style": "italic",
+      "weight": "400 900"
+    },
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "400 900"
+    }
+  ]
+}

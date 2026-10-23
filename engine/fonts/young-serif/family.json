@@ -1,0 +1,12 @@
+{
+  "id": "young-serif",
+  "family": "Young Serif",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-400-normal.woff2",
+      "style": "normal",
+      "weight": "400"
+    }
+  ]
+}

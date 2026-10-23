@@ -1,0 +1,2 @@
+The stage is 1920 by 1080 pixels.
+It runs at 42 frames per second.

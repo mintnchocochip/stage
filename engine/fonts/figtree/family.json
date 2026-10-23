@@ -1,0 +1,17 @@
+{
+  "id": "figtree",
+  "family": "Figtree",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-wght-italic.woff2",
+      "style": "italic",
+      "weight": "300 900"
+    },
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "300 900"
+    }
+  ]
+}

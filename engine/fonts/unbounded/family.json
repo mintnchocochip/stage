@@ -1,0 +1,12 @@
+{
+  "id": "unbounded",
+  "family": "Unbounded",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "200 900"
+    }
+  ]
+}

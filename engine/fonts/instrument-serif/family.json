@@ -1,0 +1,17 @@
+{
+  "id": "instrument-serif",
+  "family": "Instrument Serif",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-400-italic.woff2",
+      "style": "italic",
+      "weight": "400"
+    },
+    {
+      "file": "latin-400-normal.woff2",
+      "style": "normal",
+      "weight": "400"
+    }
+  ]
+}

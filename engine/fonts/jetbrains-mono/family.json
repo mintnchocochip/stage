@@ -1,0 +1,17 @@
+{
+  "id": "jetbrains-mono",
+  "family": "JetBrains Mono",
+  "category": "monospace",
+  "files": [
+    {
+      "file": "latin-wght-italic.woff2",
+      "style": "italic",
+      "weight": "100 800"
+    },
+    {
+      "file": "latin-wght-normal.woff2",
+      "style": "normal",
+      "weight": "100 800"
+    }
+  ]
+}

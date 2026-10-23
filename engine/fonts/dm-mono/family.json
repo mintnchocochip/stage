@@ -1,0 +1,37 @@
+{
+  "id": "dm-mono",
+  "family": "DM Mono",
+  "category": "monospace",
+  "files": [
+    {
+      "file": "latin-300-italic.woff2",
+      "style": "italic",
+      "weight": "300"
+    },
+    {
+      "file": "latin-300-normal.woff2",
+      "style": "normal",
+      "weight": "300"
+    },
+    {
+      "file": "latin-400-italic.woff2",
+      "style": "italic",
+      "weight": "400"
+    },
+    {
+      "file": "latin-400-normal.woff2",
+      "style": "normal",
+      "weight": "400"
+    },
+    {
+      "file": "latin-500-italic.woff2",
+      "style": "italic",
+      "weight": "500"
+    },
+    {
+      "file": "latin-500-normal.woff2",
+      "style": "normal",
+      "weight": "500"
+    }
+  ]
+}

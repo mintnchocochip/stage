@@ -1,0 +1,17 @@
+{
+  "id": "archivo",
+  "family": "Archivo",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-standard-italic.woff2",
+      "style": "italic",
+      "weight": "100 900"
+    },
+    {
+      "file": "latin-standard-normal.woff2",
+      "style": "normal",
+      "weight": "100 900"
+    }
+  ]
+}

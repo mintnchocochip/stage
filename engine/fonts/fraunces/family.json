@@ -1,0 +1,17 @@
+{
+  "id": "fraunces",
+  "family": "Fraunces",
+  "category": "serif",
+  "files": [
+    {
+      "file": "latin-full-italic.woff2",
+      "style": "italic",
+      "weight": "100 900"
+    },
+    {
+      "file": "latin-full-normal.woff2",
+      "style": "normal",
+      "weight": "100 900"
+    }
+  ]
+}

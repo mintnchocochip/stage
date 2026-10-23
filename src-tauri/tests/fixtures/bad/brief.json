@@ -1,0 +1,16 @@
+{
+  "title": "Bad deck",
+  "source_policy": "strict",
+  "sources": [
+    { "id": "S1", "ref": "sources/facts.txt", "kind": "doc" },
+    { "id": "S2", "ref": "sources/missing.txt", "kind": "doc" },
+    { "id": "S3", "kind": "model" }
+  ],
+  "claims": [
+    { "id": "C1", "text": "The stage is 1,920 by 1080", "source": "S1", "quote": "The stage is 1920 by 1080 pixels." },
+    { "id": "C2", "text": "It runs at 42 frames", "source": "S1", "quote": "It runs at 42 frames per second wrongly quoted" },
+    { "id": "C3", "text": "Something with 77", "source": "S2", "quote": "anything" },
+    { "id": "C4", "text": "From memory", "source": "S3" },
+    { "id": "C5", "text": "Nowhere", "source": "S9" }
+  ]
+}

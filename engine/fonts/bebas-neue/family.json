@@ -1,0 +1,12 @@
+{
+  "id": "bebas-neue",
+  "family": "Bebas Neue",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-400-normal.woff2",
+      "style": "normal",
+      "weight": "400"
+    }
+  ]
+}

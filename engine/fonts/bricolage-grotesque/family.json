@@ -1,0 +1,12 @@
+{
+  "id": "bricolage-grotesque",
+  "family": "Bricolage Grotesque",
+  "category": "sans-serif",
+  "files": [
+    {
+      "file": "latin-standard-normal.woff2",
+      "style": "normal",
+      "weight": "200 800"
+    }
+  ]
+}
